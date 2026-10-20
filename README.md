@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Placement Readiness Platform
+
+A web application that helps students prepare for placements by comparing their current skills with the requirements of their target job roles.
+
+The platform allows students to manage their profiles, track skill proficiency, and identify the skills they need to improve for their desired career path.
+
+## Features
+
+- **Authentication:** Sign up, log in, and log out.
+- **Student Profile:** Manage academic information, including name, branch, year of study, college, and CGPA.
+- **Skills Management:** Add, update, and remove skills with proficiency levels from 1 to 10.
+- **Project Management:** Maintain a portfolio of projects, including descriptions, technologies, and repository links.
+- **Certifications:** Track certifications, issuers, and earned dates.
+- **Job Role Selection:** Explore available target job roles.
+- **Skill-Gap Analysis:** Compare current skill proficiency against the requirements of a selected role.
+- **Personalized Feedback:** Identify missing skills and proficiency gaps.
+- **Data Protection:** Use Supabase authentication and Row Level Security (RLS) to protect student data.
+
+## Tech Stack
+
+- **Frontend:** Next.js, React, TypeScript
+- **Styling:** Tailwind CSS, shadcn/ui components
+- **Backend:** Next.js API Routes
+- **Database:** Supabase (PostgreSQL)
+- **Authentication:** Supabase Auth
+- **Version Control:** Git and GitHub
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js and npm
+- A Supabase project
+- Git
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/placement-readiness-platform.git
+cd placement-readiness-platform
+```
+
+Replace `YOUR_USERNAME` with your GitHub username.
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure environment variables
+
+Create a `.env.local` file in the project root and add your Supabase project credentials:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your_supabase_publishable_key
+```
+
+Replace the placeholders with the appropriate values from your Supabase project.
+
+**Security:** Never commit `.env.local`, passwords, service-role keys, or other private credentials to GitHub.
+
+### 4. Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 5. Build for production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+## API Overview
 
-To learn more about Next.js, take a look at the following resources:
+The application exposes Next.js API routes for authentication, profile management, job roles, skill requirements, and student data.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Endpoint | Purpose |
+|---|---|
+| `/api/auth/signup` | User registration |
+| `/api/auth/login` | User login |
+| `/api/profile` | Student profile management |
+| `/api/job-roles` | Retrieve available job roles |
+| `/api/skills` | Retrieve available skills |
+| `/api/role-requirements` | Retrieve role-specific skill requirements |
+| `/api/skill-gap` | Analyze skill gaps for a selected role |
+| `/api/student-skills` | Manage student skills |
+| `/api/student-projects` | Manage student projects |
+| `/api/student-certifications` | Manage student certifications |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Goals
 
-## Deploy on Vercel
+The goal of this project is to help students understand their placement readiness through structured skill tracking and role-specific comparisons.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+It also serves as a practical application of full-stack web development, API design, database integration, authentication, and access control.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Future Improvements
+
+- Personalized learning roadmaps
+- AI-assisted skill recommendations
+- Progress tracking and readiness reports
+- Additional job roles and skill requirements
+- Deployment and production monitoring
+
+## Status
+
+**Version:** V1 — Core placement-readiness features
+
+Built as a full-stack portfolio project.
