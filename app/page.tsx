@@ -45,15 +45,25 @@ async function handleGoogleLogin() {
     setLoading(true);
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email: email.trim(),
-        password,
-      });
+      const { data, error } = await supabase.auth.signInWithPassword({
+  email: email.trim(),
+  password,
+});
 
-      if (error) {
-        setMessage(error.message);
-        return;
-      }
+if (error) {
+  setMessage(error.message);
+  return;
+}
+
+const accessToken = data.session?.access_token;
+
+if (!accessToken) {
+  setMessage("Unable to retrieve your login session.");
+  return;
+}
+
+console.log("Supabase session token available:", Boolean(accessToken));
+
 
       window.location.href = "/dashboard";
     } catch {
@@ -118,7 +128,6 @@ async function handleGoogleLogin() {
                     href="/forgot-password"
                     className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
                   >
-                    Forgot your password?
                   </a>
                 </div>
 

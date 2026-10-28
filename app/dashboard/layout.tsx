@@ -64,6 +64,16 @@ async function handleLogout() {
             >
               My Profile
             </Link>
+            <Link
+              href="/dashboard/roadmap"
+              className={
+                pathname.startsWith("/dashboard/roadmap")
+                  ? activeClass
+                  : inactiveClass
+              }
+            >
+              Roadmap
+            </Link>
             <button
   type="button"
   onClick={handleLogout}
